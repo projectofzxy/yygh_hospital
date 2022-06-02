@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-//@ComponentScan(basePackages = "com")
+@ComponentScan(basePackages = "com.yygh")
 public class ServiceHospApplication {
     public static void main(String[] args) {
         SpringApplication.run(ServiceHospApplication.class, args);
