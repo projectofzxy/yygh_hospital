@@ -1,5 +1,5 @@
-import { login, logout, getInfo } from '@/api/login'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import {login, logout, getInfo} from '@/api/login'
+import {getToken, setToken, removeToken} from '@/utils/auth'
 
 const user = {
   state: {
@@ -26,9 +26,9 @@ const user = {
 
   actions: {
     // 登录
-    Login({ commit }, userInfo) {
+    Login({commit}, userInfo) {
 
-      const data = {'token':'admin'}
+      const data = {'token': 'admin'}
       setToken(data.token)
       commit('SET_TOKEN', data.token)
 
@@ -47,9 +47,13 @@ const user = {
     },
 
     // 获取用户信息
-    GetInfo({ commit, state }) {
+    GetInfo({commit, state}) {
 
-      const data = {'roles':'admin','name':'admin','avatar':'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'}
+      const data = {
+        'roles': 'admin',
+        'name': 'admin',
+        'avatar': 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
+      }
       if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
         commit('SET_ROLES', data.roles)
       } else {
@@ -76,7 +80,7 @@ const user = {
     },
 
     // 登出
-    LogOut({ commit, state }) {
+    LogOut({commit, state}) {
       commit('SET_TOKEN', '')
       commit('SET_ROLES', [])
       removeToken()
@@ -93,11 +97,11 @@ const user = {
     },
 
     // 前端 登出
-    FedLogOut({ commit }) {
+    FedLogOut({commit}) {
       //return new Promise(resolve => {
-        commit('SET_TOKEN', '')
-        removeToken()
-        resolve()
+      commit('SET_TOKEN', '')
+      removeToken()
+      resolve()
       //})
     }
   }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @MapperScan("com.yygh.hosp.mapper")
 public class HospConfig {
     @Bean
-    public PaginationInterceptor paginationInterceptor(){
+    public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor();
     }
 }

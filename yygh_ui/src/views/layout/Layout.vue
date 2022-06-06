@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from './components'
+import {Navbar, Sidebar, AppMain} from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
@@ -39,31 +39,34 @@ export default {
   },
   methods: {
     handleClickOutside() {
-      this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
+      this.$store.dispatch('CloseSideBar', {withoutAnimation: false})
     }
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import "src/styles/mixin.scss";
-  .app-wrapper {
-    @include clearfix;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    &.mobile.openSidebar{
-      position: fixed;
-      top: 0;
-    }
-  }
-  .drawer-bg {
-    background: #000;
-    opacity: 0.3;
-    width: 100%;
+@import "src/styles/mixin.scss";
+
+.app-wrapper {
+  @include clearfix;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &.mobile.openSidebar {
+    position: fixed;
     top: 0;
-    height: 100%;
-    position: absolute;
-    z-index: 999;
   }
+}
+
+.drawer-bg {
+  background: #000;
+  opacity: 0.3;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+}
 </style>

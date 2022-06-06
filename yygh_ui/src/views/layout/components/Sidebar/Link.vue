@@ -1,4 +1,3 @@
-
 <template>
   <!-- eslint-disable vue/require-component-is-->
   <component v-bind="linkProps(to)">
@@ -7,7 +6,7 @@
 </template>
 
 <script>
-import { isExternal } from '@/utils'
+import {isExternal} from '@/utils'
 
 export default {
   props: {

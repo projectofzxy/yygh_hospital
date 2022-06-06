@@ -46,10 +46,10 @@ public class HospitalSetController {
     @DeleteMapping("{id}")
     public Result removeHospSet(@PathVariable Long id) {
         boolean flag = hospitalSetService.removeById(id);
-        if (flag){
+        if (flag) {
             return Result.ok();
-        }else {
-        return Result.fail();
+        } else {
+            return Result.fail();
         }
     }
 
@@ -58,18 +58,18 @@ public class HospitalSetController {
     public Result findPageHospSet(@PathVariable long current,
                                   @PathVariable long limit,
                                   @RequestBody(required = false)//设置可以为空
-                                              HospitalSetQueryVo hospitalSetQueryVo) {
+                                          HospitalSetQueryVo hospitalSetQueryVo) {
         //创建page对象，传递当前页，每页记录数
-        Page<HospitalSet> page = new Page<>(current,limit);
+        Page<HospitalSet> page = new Page<>(current, limit);
         //构建条件
         QueryWrapper<HospitalSet> wrapper = new QueryWrapper<>();
         String hosname = hospitalSetQueryVo.getHosname();//医院名称
         String hoscode = hospitalSetQueryVo.getHoscode();//医院编号
-        if(!StringUtils.isEmpty(hosname)) {
-            wrapper.like("hosname",hospitalSetQueryVo.getHosname());
+        if (!StringUtils.isEmpty(hosname)) {
+            wrapper.like("hosname", hospitalSetQueryVo.getHosname());
         }
-        if(!StringUtils.isEmpty(hoscode)) {
-            wrapper.eq("hoscode",hospitalSetQueryVo.getHoscode());
+        if (!StringUtils.isEmpty(hoscode)) {
+            wrapper.eq("hoscode", hospitalSetQueryVo.getHoscode());
         }
 
         //调用方法实现分页查询
@@ -86,10 +86,10 @@ public class HospitalSetController {
         hospitalSet.setStatus(1);
         //签名秘钥
         Random random = new Random();
-        hospitalSet.setSignKey(MD5.encrypt(System.currentTimeMillis()+""+random.nextInt(1000)));
+        hospitalSet.setSignKey(MD5.encrypt(System.currentTimeMillis() + "" + random.nextInt(1000)));
         //调用service
         boolean save = hospitalSetService.save(hospitalSet);
-        if(save) {
+        if (save) {
             return Result.ok();
         } else {
             return Result.fail();
@@ -113,7 +113,7 @@ public class HospitalSetController {
     @PostMapping("updateHospitalSet")
     public Result updateHospitalSet(@RequestBody HospitalSet hospitalSet) {
         boolean flag = hospitalSetService.updateById(hospitalSet);
-        if(flag) {
+        if (flag) {
             return Result.ok();
         } else {
             return Result.fail();
