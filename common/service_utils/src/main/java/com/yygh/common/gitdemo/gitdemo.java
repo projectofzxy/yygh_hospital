@@ -1,5 +1,7 @@
 package com.yygh.common.gitdemo;
 
+import org.springframework.transaction.jta.UserTransactionAdapter;
+
 /**
  * @ClassName : gitdemo  //类名
  * @Description : 测试git  //描述
@@ -8,6 +10,6 @@ package com.yygh.common.gitdemo;
  */
 public class gitdemo {
     public static void main(String[] args) {
-        
+        System.out.println("");
     }
 }
